@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="">Category</label>
+                <select class="form-control" formControlName="category">
+                    <option selected></option>
+                    <option value="Groceries">Groceries</option>
+                    <option value="Health">Health</option>
+                    <option value="Transport">Transport</option>
+                    <option value="Gifts">Gifts</option>
+                    <option value="Family">Family</option>
+                    <option value="Shopping">Shopping</option>
+                    <option value="Restaurant">Restaurant</option>
+                    <option value="Leisure">Leisure</option>
+                  </select>
+                <div class="text-danger" *ngIf="(submitted && form.category.errors) || (form.category.invalid && (form.category.dirty || form.category.touched))">
+                    <div *ngIf="form.category.errors.required">
+                        The Category field is required
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="">Amount</label>
+                <input type="number" min="0" class="form-control" formControlName="amount">
+                <div class="text-danger" *ngIf="(submitted && form.amount.errors) || (form.amount.invalid && (form.amount.dirty || form.amount.touched))">
+                    <div *ngIf="form.amount.errors.required">
+                        The Amount field is required
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="">Date</label>
+                <input type="date" class="form-control" [value]="currentDate | date: 'y-MM-dd'" formControlName="date">
+                <div class="text-danger" *ngIf="(submitted && form.date.errors) || (form.date.invalid && (form.date.dirty || form.date.touched))">
+                    <div *ngIf="form.date.errors.required">
+                        The Date field is required
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="">Note</label>
+                <input type="text" class="form-control" formControlName="note">
+            </div>
+            <button type="submit" class="btn btn-primary">Add new</button>
+            <a routerLink="../list" class="btn btn-link">Back to the List</a>
+        </form>
+    </div>
+</div>

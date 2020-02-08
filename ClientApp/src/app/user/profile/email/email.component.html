@@ -1,0 +1,29 @@
+<h4>Manage email</h4>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="">Email</label>
+            <div class="input-group">
+                <input type="text" class="form-control" disabled [value]="email">
+                <div class="input-group-append">
+                    <span class="input-group-text text-success font-weight-bold">✓</span>
+                </div>
+            </div>
+        </div>
+        <form [formGroup]="emailForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="">New email</label>
+                <input type="text" class="form-control" formControlName="email">
+                <div class="text-danger" *ngIf="(submitted && form.email.errors) || (form.email.invalid && (form.email.dirty || form.email.touched))">
+                    <!-- <div *ngIf="form.email.errors.required">
+                        The Email field is required
+                    </div>
+                    <div *ngIf="form.email.errors.email">
+                        The Email field is not a valid e-mail address.
+                    </div> -->
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary" disabled>Change email</button>
+        </form>
+    </div>
+</div>

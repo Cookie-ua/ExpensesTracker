@@ -1,0 +1,28 @@
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <canvas #columnChartCanvas >{{ columnChartData }}</canvas>
+    </div>
+    <div class="col-md-4" style="display: flex; flex-direction: column; justify-content: center;">
+        <div *ngFor="let item of explanationData" style="display: flex; flex-direction: row; align-items: center; margin-bottom: 12px;">
+            <div class="crcl" [style.background-color]="item.color" style="margin-right: 8px;">
+                <i class="material-icons md-light" style="margin: 6px 6px 6px 6px;">{{item.icon}}</i>        
+            </div>
+            <div style="display: flex; flex-direction: column; justify-content: space-around; width: 100%; height: 36px;">
+                <div class="flex-row-container" style="justify-content: space-between;">
+                    <div>
+                        {{item.category}}
+                    </div>
+                    <div>
+                        {{item.amount.toFixed(2)}} $
+                    </div>
+                </div>
+                <div class="progress-bar-cont flex-row-container">
+                    <div class="progress-bar-scale" [style.background]="item.color" [ngStyle]="{'width.%': ((item.amount/totalAmount)*100).toFixed(2)}"></div>
+                    <div class="progress-bar-percentage" [style.color]="item.color">
+                        {{((item.amount/totalAmount)*100).toFixed(0)}}%
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

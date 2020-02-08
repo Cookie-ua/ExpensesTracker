@@ -1,0 +1,36 @@
+/* You can add global styles to this file, and also import other style files */
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.flex-row-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-col-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.md-16{
+    font-size: 16px; 
+}
+
+.md-18{
+    font-size: 18px; 
+}
+
+.md-light{
+    color: rgba(255, 255, 255, 1); 
+}
+
+body{
+    height: 100%;
+}

@@ -1,0 +1,13 @@
+<div *ngIf="message" [ngClass]="message.cssClass">
+    <div *ngIf="message.type === 'error_400'">
+        <ul>
+            <li *ngFor="let item of message.text">{{item}}</li>
+        </ul>
+    </div>
+    <div *ngIf="message.type !== 'error_400'">
+        {{message.text}}
+        <button type="button" class="close" aria-label="Close" (click)="close()">
+            <span aria-hidden="true">x</span>
+        </button>
+    </div>
+</div>

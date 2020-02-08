@@ -1,0 +1,35 @@
+<div class="row justify-content-center" *ngIf="expense">
+    <div class="col-md-8">
+        <h4>Edit expense</h4>
+        <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="">Category</label>
+                <select class="form-control" formControlName="category">
+                    <option selected></option>
+                    <option value="Groceries">Groceries</option>
+                    <option value="Health">Health</option>
+                    <option value="Transport">Transport</option>
+                    <option value="Gifts">Gifts</option>
+                    <option value="Family">Family</option>
+                    <option value="Shopping">Shopping</option>
+                    <option value="Restaurant">Restaurant</option>
+                    <option value="Leisure">Leisure</option>
+                  </select>
+            </div>
+            <div class="form-group">
+                <label for="">Amount</label>
+                <input type="number" class="form-control" [value]="expense.amount" formControlName="amount">
+            </div>
+            <div class="form-group">
+                <label for="">Date</label>
+                <input type="date" class="form-control" [value]="expense.date | date: 'y-MM-dd'" formControlName="date">
+            </div>
+            <div class="form-group">
+                <label for="">Note</label>
+                <input type="text" class="form-control" [value]="expense.note" formControlName="note">
+            </div>
+            <button type="submit" class="btn btn-primary">Update</button>
+            <a routerLink="/expense/list" class="btn btn-link">Back to the List</a>
+        </form>
+    </div>
+</div>

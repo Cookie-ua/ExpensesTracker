@@ -1,0 +1,19 @@
+<h4>Delete Account</h4>
+<div class="alert alert-danger">
+    <p>Once you delete your account, there is no going back.</p>
+</div>
+<form [formGroup]="deleteForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="">Password</label>
+        <input type="password" class="form-control" formControlName="password">
+        <div class="text-danger" *ngIf="(submitted && form.password.errors) || (form.password.invalid && (form.password.dirty || form.password.touched))">
+            <div *ngIf="form.password.errors.required">
+                The Password field is required
+            </div>
+        </div>
+    </div>
+    <button [disabled]="loading" type="submit" class="btn btn-danger">
+        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+        Delete account
+    </button>
+</form>

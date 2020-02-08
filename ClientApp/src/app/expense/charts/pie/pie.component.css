@@ -1,0 +1,26 @@
+.crcl{
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    border-radius: 36px;
+}
+
+.progress-bar-cont{
+    height: 4px; 
+    width: 100%; 
+    border-radius: 1.5px;
+    background: #ddd;
+    align-items: center;
+    /* margin-top: 4px; */
+}
+
+.progress-bar-scale{
+    height: 4px; 
+    border-radius: 1.5px;
+}
+
+.progress-bar-percentage{
+    padding: 0 4px 0 4px;
+    font-size: 14px; 
+    background: white; 
+}
